@@ -1,0 +1,7 @@
+﻿INSERT INTO [dbo].[AccountHolder] ([AccountHolderId], [LastName], [FirstName], [PIN]) VALUES (1, N'Jones', N'Scott', 2894)
+INSERT INTO [dbo].[AccountHolder] ([AccountHolderId], [LastName], [FirstName], [PIN]) VALUES (3, N'Myers', N'Mike', 2893)
+INSERT INTO [dbo].[AccountHolder] ([AccountHolderId], [LastName], [FirstName], [PIN]) VALUES (29, N'Madison', N'Ashley', 2892)
+INSERT INTO [dbo].[AccountHolder] ([AccountHolderId], [LastName], [FirstName], [PIN]) VALUES (34, N'Smith', N'Matt', 2891)
+INSERT INTO [dbo].[AccountHolder] ([AccountHolderId], [LastName], [FirstName], [PIN]) VALUES (76, N'Gregg', N'Gregory', 2895)
+INSERT INTO [dbo].[AccountHolder] ([AccountHolderId], [LastName], [FirstName], [PIN]) VALUES (87, N'The Clown', N'Pennywise', 2896)
+INSERT INTO [dbo].[AccountHolder] ([AccountHolderId], [LastName], [FirstName], [PIN]) VALUES (98, N'Holmes', N'James', 2897)

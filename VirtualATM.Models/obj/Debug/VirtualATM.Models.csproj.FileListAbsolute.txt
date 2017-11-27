@@ -1,0 +1,11 @@
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\bin\Debug\VirtualATM.Models.dll.config
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\bin\Debug\VirtualATM.Models.dll
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\bin\Debug\VirtualATM.Models.pdb
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\bin\Debug\EntityFramework.dll
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\bin\Debug\EntityFramework.xml
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\obj\Debug\VirtualATM.Models.csprojResolveAssemblyReference.cache
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\obj\Debug\VirtualATM.Models.csproj.CoreCompileInputs.cache
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\obj\Debug\VirtualATM.Models.dll
+C:\Users\wande\Videos\dotnetprojects\VirtualATM\VirtualATM.Models\obj\Debug\VirtualATM.Models.pdb
