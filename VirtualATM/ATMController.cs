@@ -10,13 +10,11 @@ namespace VirtualATM
 {
     public class ATMController
     {
-        //instantiating LoginService
+        //instantiating Services
         private static LoginService loginService = new LoginService();
 
-        //instantiating CustomerService
         private static CustomerService customerService = new CustomerService();
 
-        //instantiating TransactionService
         private static TransactionService transactionService = new TransactionService();
 
         public void Art()
@@ -110,16 +108,17 @@ namespace VirtualATM
                              break;
 
                         case 5:
-                            Console.WriteLine("Please enter account number..");
-                            accNum = Int32.Parse(Console.ReadLine().Trim());
+                             Console.WriteLine("Please enter account number..");
+                             accNum = Int32.Parse(Console.ReadLine().Trim());
 
-                            customerService.TransactionActivity(accNum);
-                        break;
+                             customerService.TransactionActivity(accNum);
+                             break;
+
                         case 6:
                             break;
                         case 7:
-                            Environment.Exit(0);
-                            break;
+                             Environment.Exit(0);
+                             break;
                     }
             }
         }
