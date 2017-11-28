@@ -7,20 +7,25 @@ using VirtualATM.Models;
 
 namespace VirtualATM.Services
 {
-    public class CustomerService
+    public class AccountService
     {
         private VirtualATMdbEntities db = new VirtualATMdbEntities();
 
-        public bool DisplayBalance(int accNum)
+        public Account GetAccountById(int accntHolder, int accntId)
+        {
+            return
+                new VirtualATMdbEntities()
+                    .Accounts
+                    .SingleOrDefault(e => e.AccountId == accntId && e.AccountHolderId == accntHolder);
+        }
+
+        public bool RetrieveBalance(Account accntId)
         {
             var query = from a in db.Accounts
-                        where a.AccountId == accNum
+                        where a.AccountId == accntId
                         select a;
             foreach (var i in query)
             {
-                Console.WriteLine($"Account ID: {i.AccountId} \n" +
-                                  $"Type:       {i.AccountType} \n" +
-                                  $"Balance:    {i.Balance}");
                 return true;
             }
             //TODO: loop back to account id request
@@ -28,19 +33,13 @@ namespace VirtualATM.Services
             return false;
         }
 
-        public bool TransactionActivity(int accNum)
+        public bool TransactionActivity(int accntId)
         {
             var query = from a in db.Transactions
                         where a.AccountId != 0
                         select a;
             foreach (var i in query)
             {
-                Console.WriteLine($"{i.AccountId}" +
-                                  $"{i.TransactionId}" +
-                                  $"{i.TransactionType}T" +
-                                  $"{i.TransactionDateTime}" +
-                                  $"{i.Amount}" +
-                                  $"{i.TransactionDescription}");
                 return true;
             }
             return false;

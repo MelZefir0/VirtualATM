@@ -12,26 +12,18 @@ namespace VirtualATM.Services
     {
         private VirtualATMdbEntities db = new VirtualATMdbEntities();
 
-        public bool VerifyAccount(int accIdNum, int pinNum)
+        public bool VerifyAccount(int accntHolder, int pinNum)
         {
             var query = from a in db.AccountHolders
-                        where a.PIN == pinNum && a.AccountHolderId == accIdNum
+                        where a.PIN == pinNum && a.AccountHolderId == accntHolder
                         select a;
             foreach(var i in query)
-            {
+            { 
                 return true;
             }
 
-            Console.WriteLine("Please enter a valid ID and PIN...");
             return false;
         }
 
-        public static Account GetAccountById(int accIdNum, int id)
-        {
-            return
-                new VirtualATMdbEntities()
-                    .Accounts
-                    .SingleOrDefault(e => e.AccountId == id && e.AccountHolderId == accIdNum);
-        }
     }
 }
