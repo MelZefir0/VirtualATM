@@ -76,7 +76,6 @@ namespace VirtualATM
         //                      $"{id.Amount}" +
         //                      $"{accntId.TransactionDescription}");
         //}
-        //is this necessary?
 
         public static void StartATM()
         {
