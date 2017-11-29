@@ -11,147 +11,123 @@ namespace VirtualATM
 {
     public class ATMController
     {
-        private static LoginService loginService = new LoginService();
+        private static AuthService authService = new AuthService();
         private static AccountService accountService = new AccountService();
         private static TransactionService transactionService = new TransactionService();
+        private static AccountService getAccount = new AccountService();
 
         public void Art()
         {
-            Console.WriteLine(@" ………………_„-,-~''~''':::'':::':::::''::::''... 
-                                 ………._,-'':::::::::::::::::::::::::::::... 
-                                 ………..,-'::::::::::::::::::::::::::::::... 
-                                 ………,-'::::::::::::„:„„-~-~--'~-'~--~-~... 
-                                ……..,'::::::::::,~'': : : : : : : : : : : : : : : : : : '-| 
-                                ……..|::::::::,-': : : : : : : : - -~''''¯¯''-„: : : : :\ 
-                                ……..|::::::::|: : : : : : : : : _„„--~'''''~-„: : : : '| 
-                              ……..'|:::::::,': : : : : : :_„„-: : : : : : : : ~--„_: |' 
-                                ………|::::::|: : : „--~~'''~~''''''''-„…_..„~''''''''''''¯| 
-                                ………|:::::,':_„„-|: : :_„---~: : :|''¯¯''''|: ~---„_: || 
-                               ……..,~-,_/'': : : |: :(_ o__): : |: : : :|:(_o__): \..| 
-                               ……../,'-,: : : : : ''-,_______,-'': : : : ''-„_____| 
-                               ……..\: :|: : : : : : : : : : : : : :„: : : : :-,: : : : : : : :\ 
-                                ………',:': : : : : : : : : : : : :,-'__: : : :_',: : : : ;: ,' 
-                                 ……….'-,-': : : : : :___„-: : :'': : ¯''~~'': ': : ~--|' 
-                                  ………….|: ,: : : : : : : : : : : : : : : : : : : : : :: : :| 
-                                 ………….'|: \: : : : : : : : -,„_„„-~~--~--„_: :: | 
-                                 …………..|: \: : : : : : : : : : : :-------~: : : : : | 
-                                 …………..|: :''-,: : : : : : : : : : : : : : : : : : : : :| 
-                                 …………..',: : :''-, : : : : : : : : : : : : : : : : :: ,' 
-                                  ……………| : : : : : : : : :_ : : : : : : : : : : ,-' 
-                                  ……………|: : : : : : : : : : '''~----------~'' 
-                                 …………._|: : : : : : : : : : : : : : : : : : : :| 
-                                ……….„-''. '-,_: : : : : : : : : : : : : : : : : ,' 
-                               ……,-''. . . . . '''~-„_: : : : : : : : : : : : :,-'''-„");
+            Console.WriteLine(@"
+                               
+                               
+                               .--------------------------------------------------------------------.
+                               | .--                    FEDERAL REVERSE NOTE                    .-- |
+                               | |_       ......    THE UNTIED STATES OF AMERICA                |_  |
+                               | __)    ``````````             ______            B93810455B     __) |
+                               |      2        ___            /      \                     2        |
+                               |              /|~\\          /  _-\\  \           __ _ _ _  __      |
+                               |             | |-< |        |  //   \  |         |_  | | | |_       |
+                               |              \|_//         | |-  Ó ó| |         |   | `.' |__      |
+                               |               ~~~          | |\   b.' |                            |
+                               |       B83910455B           |  \ '~~|  |                            |
+                               | .--  2                      \_/ ```__/    ....            2    .-- |
+                               | |_        ///// ///// ////   \__\'`\/      ``  //// / ////     |_  |
+                               | __)                   F I V E  D O L L A R S                   __) |
+                               `--------------------------------------------------------------------'");
+        }
+
+        public static void AccountId(int id)
+        {
+            accountService.GetAccountById(id);
         }
         
-        public static void DisplayBalance(Account accntId)
+        //public static void Balance(int id)
+        //{
+
+        //    int id = accountService.GetAccId(id, userId);
+        //    accountService.RetrieveBalance(id);
+        //    Console.WriteLine($"Account ID: {id.AccountId} \n" +
+        //                      $"Type:       {account.AccountType} \n" +
+        //                      $"Balance:    {account.Balance}");
+        //}
+
+        public static void Withdrawal(int id)
         {
-            accountService.RetrieveBalance(accntId);
-            Console.WriteLine($"Account ID: {accntId.AccountId} \n" +
-                              $"Type:       {accntId.AccountType} \n" +
-                              $"Balance:    {accntId.Balance}");
+            Console.WriteLine("How much would you like to withdraw?");
+            int withdrawalAmount = Int32.Parse(Console.ReadLine());
+            transactionService.Withdrawal(id, withdrawalAmount);
         }
 
-        public static void ConfirmWithdrawal(Transaction withdrawal, Account accntId, int amount)
+        public static void Deposit(int id)
         {
-            transactionService.Withdrawal(accntId, amount);
+            Console.WriteLine("How much would you like to deposit?");
+            int depositAmount = Int32.Parse(Console.ReadLine());
+            transactionService.Deposit(id, depositAmount);
         }
 
-        public static void ConfirmDeposit(Transaction Deposit, Account accntId, int amount)
-        {
-            transactionService.Withdrawal(accntId, amount);
-        }
-
-        public static void DisplayActivity(Transaction accntId)
-        {
-            accountService.TransactionActivity(accntId);
-            Console.WriteLine($"{accntId.AccountId}" +
-                              $"{accntId.TransactionId}" +
-                              $"{accntId.TransactionType}" +
-                              $"{accntId.TransactionDateTime}" +
-                              $"{accntId.Amount}" +
-                              $"{accntId.TransactionDescription}");
-        }
+        //public static void Activity(int id)
+        //{
+        //    accountService.TransactionActivity(id);
+        //    Console.WriteLine($"{id.AccountId}" +
+        //                      $"{id.TransactionId}" +
+        //                      $"{id.TransactionType}" +
+        //                      $"{id.TransactionDateTime}" +
+        //                      $"{id.Amount}" +
+        //                      $"{accntId.TransactionDescription}");
+        //}
         //is this necessary?
-        public static void Name(AccountHolder name)
-        {
-             name.FirstName = name.FirstName;
-        }
 
         public static void StartATM()
         {
-            Console.WriteLine("Welcome to Hank Bank. We do not sell propane or propane accessories, we only provide ATM services. Please enter your ID number..");
-            int accntHolder = Int32.Parse(Console.ReadLine().Trim());
+            Console.WriteLine("Welcome. Please enter your Personal ID Number: ");
+            int userid = Int32.Parse(Console.ReadLine().Trim());
 
-            Console.WriteLine("We're also gonna need a PIN..");
-            int pinNum = Int32.Parse(Console.ReadLine().Trim());
+            Console.WriteLine("PIN: ");
+            int pin = Int32.Parse(Console.ReadLine().Trim());
 
-            //running VerifyAccount method from loginService with user entered information passed through
-            loginService.VerifyAccount(accntHolder, pinNum);
-            Console.ReadLine();
+            authService.VerifyAccount(userid, pin);
+            
 
-            //TODO: loop back to login screen when not verified
-            //user has been verified. Menu is diplayed
-            while (true)
+                Console.WriteLine($"Welcome back, ??. Which account would you like to access? Account ID: ");
+                int id = Int32.Parse(Console.ReadLine().Trim());
+
+                AccountId(id);
+
+                Console.WriteLine(@"How may I assist you?
+                                1...................Check Balance
+                                2...................Make a Withdrawal
+                                3...................Make a Deposit
+                                4...................Account Activity
+                                5...................Exit");
+                var option = int.Parse(Console.ReadLine().Trim());
+
+                switch (option)
                 {
-                    Console.WriteLine($@"Welcome back, {firstName}. How may I assist you?
-                                         1...................Select Language
-                                         2...................Check Balance
-                                         3...................Make a Withdrawal
-                                         4...................Make a Deposit
-                                         5...................Account Activity
-                                         6...................Make a Transfer
-                                         7...................Exit");
-                    var option = int.Parse(Console.ReadLine().Trim());
+                    case 1:
+                        break;
+                    case 2:
+                        Withdrawal(id);
+                        Thread.Sleep(300);
+                        break;
 
-                    switch(option)
-                    {
-                        case 1:
-                            break;
-                        case 2:
-                            Console.WriteLine("Please enter account number..");
-                            int accntId = Int32.Parse(Console.ReadLine().Trim());
-                            
-                            DisplayBalance(accntId);
+                    case 3:
+                        Deposit(id);
+                        Thread.Sleep(300);
+                        break;
 
-                            Thread.Sleep(300);
-                            break;
+                    case 4:
 
-                        case 3:
-                            Console.WriteLine("Which account would you like to make a withdrawal from? Account ID: ");
-                            accntId = Int32.Parse(Console.ReadLine().Trim());
+                        Thread.Sleep(300);
+                        break;
 
-                            Console.WriteLine("How much would you like to withdraw?");
-                            int amount = Int32.Parse(Console.ReadLine());
+                    case 5:
+                        Environment.Exit(0);
+                        Thread.Sleep(300);
+                        break;
 
-                           
-                            Console.ReadLine();
-                            break;
-
-                        case 4:
-                            Console.WriteLine("Which account would you like to make a deposit to? Account Number: ");
-                            accntId = Int32.Parse(Console.ReadLine().Trim());
-
-                            Console.WriteLine("How much would you like to deposit?");
-                            amount = Int32.Parse(Console.ReadLine());
-
-                            Thread.Sleep(300);
-                            break;
-
-                        case 5:
-                            Console.WriteLine("Please enter account number..");
-                            accntId = Int32.Parse(Console.ReadLine().Trim());
-
-                            Thread.Sleep(300);
-                            break;
-
-                        case 6:
-                            break;
-                        case 7:
-                            Environment.Exit(0);
-                            break;
-                    }
-            }
+                }
+            
         }
     }
 }

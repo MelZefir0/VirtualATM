@@ -4,13 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="136402a9b6904a1faa901a39bd4e965e" Name="Diagram1">
+      <Diagram DiagramId="b8a08e589d564011b4991f727f04ab08" Name="Diagram1">
         <EntityTypeShape EntityType="VirtualATMdbModel.Account" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="VirtualATMdbModel.AccountHolder" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VirtualATMdbModel.Table" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VirtualATMdbModel.Transaction" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="VirtualATMdbModel.FK__Account__Account__2A4B4B5E" ManuallyRouted="false" />
-        <AssociationConnector Association="VirtualATMdbModel.FK__Transacti__Accou__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="VirtualATMdbModel.FK__Account__Account__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="VirtualATMdbModel.FK__Transacti__Accou__440B1D61" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

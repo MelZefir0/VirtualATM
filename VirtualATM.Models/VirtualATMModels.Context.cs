@@ -13,10 +13,10 @@ namespace VirtualATM.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VirtualATMdbEntities : DbContext
+    public partial class VirtualATMdbEntities1 : DbContext
     {
-        public VirtualATMdbEntities()
-            : base("name=VirtualATMdbEntities")
+        public VirtualATMdbEntities1()
+            : base("name=VirtualATMdbEntities1")
         {
         }
     
@@ -25,9 +25,8 @@ namespace VirtualATM.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<AccountHolder> AccountHolders { get; set; }
-        public virtual DbSet<Table> Tables { get; set; }
-        public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<Account> Account { get; set; }
+        public virtual DbSet<AccountHolder> AccountHolder { get; set; }
+        public virtual DbSet<Transaction> Transaction { get; set; }
     }
 }

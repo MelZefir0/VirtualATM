@@ -8,14 +8,14 @@ using VirtualATM.Models;
 
 namespace VirtualATM.Services
 {
-    public class LoginService
+    public class AuthService
     {
-        private VirtualATMdbEntities db = new VirtualATMdbEntities();
+        private VirtualATMdbEntities1 db = new VirtualATMdbEntities1();
 
-        public bool VerifyAccount(int accntHolder, int pinNum)
+        public bool VerifyAccount(int pin, int userId)
         {
-            var query = from a in db.AccountHolders
-                        where a.PIN == pinNum && a.AccountHolderId == accntHolder
+            var query = from a in db.AccountHolder
+                        where a.PIN == pin && a.AccountHolderId == userId
                         select a;
             foreach(var i in query)
             { 

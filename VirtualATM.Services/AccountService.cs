@@ -9,33 +9,31 @@ namespace VirtualATM.Services
 {
     public class AccountService
     {
-        private VirtualATMdbEntities db = new VirtualATMdbEntities();
+        private VirtualATMdbEntities1 db = new VirtualATMdbEntities1();
 
-        public Account GetAccountById(int accntHolder, int accntId)
+        public Account GetAccountById(int id)
         {
             return
-                new VirtualATMdbEntities()
-                    .Accounts
-                    .SingleOrDefault(e => e.AccountId == accntId && e.AccountHolderId == accntHolder);
+                new VirtualATMdbEntities1()
+                    .Account
+                    .SingleOrDefault(e => e.AccountId == id);
         }
 
-        public bool RetrieveBalance(Account accntId)
+        public bool RetrieveBalance(int id)
         {
-            var query = from a in db.Accounts
-                        where a.AccountId == accntId
+            var query = from a in db.Account
+                        where a.AccountId == id
                         select a;
             foreach (var i in query)
             {
                 return true;
             }
-            //TODO: loop back to account id request
-            Console.WriteLine("You don't seem to have an account with that ID. Please re-enter your account ID...");
             return false;
         }
 
-        public bool TransactionActivity(int accntId)
+        public bool TransactionActivity(int id)
         {
-            var query = from a in db.Transactions
+            var query = from a in db.Transaction
                         where a.AccountId != 0
                         select a;
             foreach (var i in query)

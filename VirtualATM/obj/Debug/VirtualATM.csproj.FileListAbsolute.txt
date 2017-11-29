@@ -19,3 +19,16 @@ C:\dotnetprojects\VirtualATM\VirtualATM\obj\Debug\VirtualATM.csprojResolveAssemb
 C:\dotnetprojects\VirtualATM\VirtualATM\obj\Debug\VirtualATM.csproj.CoreCompileInputs.cache
 C:\dotnetprojects\VirtualATM\VirtualATM\obj\Debug\VirtualATM.exe
 C:\dotnetprojects\VirtualATM\VirtualATM\obj\Debug\VirtualATM.pdb
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.exe.config
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.exe
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.pdb
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\EntityFramework.dll
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\EntityFramework.SqlServer.dll
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.Models.dll
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.Services.dll
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.Models.pdb
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.Models.dll.config
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.Services.pdb
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\VirtualATM.Services.dll.config
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\EntityFramework.xml
+C:\dotnetprojects\VirtualATM\VirtualATM\bin\Debug\EntityFramework.SqlServer.xml

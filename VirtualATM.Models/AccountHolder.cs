@@ -17,7 +17,7 @@ namespace VirtualATM.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AccountHolder()
         {
-            this.Accounts = new HashSet<Account>();
+            this.Account = new HashSet<Account>();
         }
     
         public int AccountHolderId { get; set; }
@@ -26,6 +26,6 @@ namespace VirtualATM.Models
         public int PIN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
+        public virtual ICollection<Account> Account { get; set; }
     }
 }

@@ -9,40 +9,38 @@ namespace VirtualATM.Services
 {
     public class TransactionService
     {
-        public bool Withdrawal(Account accntId, int amount)
+        public bool Withdrawal(int id, int amount)
         {
-            using (var ctx = new VirtualATMdbEntities())
+            using (var ctx = new VirtualATMdbEntities1())
             {
                 var transaction = new Transaction
                 {
                     TransactionType = "Withdrawal",
-                    AccountId = accntId.AccountId,
+                    AccountId = id,
                     Amount = amount
                 };
-                ctx.Transactions.Add(transaction);
+                ctx.Transaction.Add(transaction);
 
-                ctx.Accounts.SingleOrDefault(e => e.AccountId == accntId.AccountId).Balance -= amount;
-                accntId.Balance -= amount;
+                ctx.Account.SingleOrDefault(e => e.AccountId == id).Balance -= amount;
 
                                  //please explain further
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool Deposit(Account accntId, int amount)
+        public bool Deposit(int id, int amount)
         {
-            using (var ctx = new VirtualATMdbEntities())
+            using (var ctx = new VirtualATMdbEntities1())
             {
                 var transaction = new Transaction
                 {
                     TransactionType = "Deposit",
-                    AccountId = accntId.AccountId,
+                    AccountId = id,
                     Amount = amount
                 };
-                ctx.Transactions.Add(transaction);
+                ctx.Transaction.Add(transaction);
 
-                ctx.Accounts.SingleOrDefault(e => e.AccountId == accntId.AccountId).Balance += amount;
-                accntId.Balance += amount;
+                ctx.Account.SingleOrDefault(e => e.AccountId == id).Balance += amount;
 
                 return ctx.SaveChanges() == 1;
             }

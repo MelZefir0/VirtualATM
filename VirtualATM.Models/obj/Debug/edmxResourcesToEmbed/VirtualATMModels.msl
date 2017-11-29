@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="VirtualATMdbModelStoreContainer" CdmEntityContainer="VirtualATMdbEntities">
-    <EntitySetMapping Name="Accounts">
+  <EntityContainerMapping StorageEntityContainer="VirtualATMdbModelStoreContainer" CdmEntityContainer="VirtualATMdbEntities1">
+    <EntitySetMapping Name="Account">
       <EntityTypeMapping TypeName="VirtualATMdbModel.Account">
         <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="AccountRef" ColumnName="AccountRef" />
           <ScalarProperty Name="AccountId" ColumnName="AccountId" />
           <ScalarProperty Name="AccountHolderId" ColumnName="AccountHolderId" />
           <ScalarProperty Name="AccountType" ColumnName="AccountType" />
@@ -12,7 +11,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AccountHolders">
+    <EntitySetMapping Name="AccountHolder">
       <EntityTypeMapping TypeName="VirtualATMdbModel.AccountHolder">
         <MappingFragment StoreEntitySet="AccountHolder">
           <ScalarProperty Name="AccountHolderId" ColumnName="AccountHolderId" />
@@ -22,17 +21,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Tables">
-      <EntityTypeMapping TypeName="VirtualATMdbModel.Table">
-        <MappingFragment StoreEntitySet="Table">
-          <ScalarProperty Name="AccountHolderId" ColumnName="AccountHolderId" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="PIN" ColumnName="PIN" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Transactions">
+    <EntitySetMapping Name="Transaction">
       <EntityTypeMapping TypeName="VirtualATMdbModel.Transaction">
         <MappingFragment StoreEntitySet="Transaction">
           <ScalarProperty Name="AccountId" ColumnName="AccountId" />
