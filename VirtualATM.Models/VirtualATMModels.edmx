@@ -31,7 +31,7 @@
           <Property Name="TransactionId" Type="int" Nullable="false" />
           <Property Name="TransactionType" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TransactionDateTime" Type="datetime" Nullable="false" />
-          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
           <Property Name="TransactionDescription" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK__Account__Account__4316F928">
@@ -105,7 +105,7 @@
           <Property Name="TransactionId" Type="Int32" Nullable="false" />
           <Property Name="TransactionType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TransactionDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="TransactionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Accou__440B1D61" FromRole="Transaction" ToRole="Account" />
         </EntityType>
@@ -133,7 +133,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="VirtualATMdbEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VirtualATMdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="AccountHolder" EntityType="Self.AccountHolder" />
           <EntitySet Name="Transaction" EntityType="Self.Transaction" />
@@ -151,7 +151,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VirtualATMdbModelStoreContainer" CdmEntityContainer="VirtualATMdbEntities1">
+        <EntityContainerMapping StorageEntityContainer="VirtualATMdbModelStoreContainer" CdmEntityContainer="VirtualATMdbEntities">
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="VirtualATMdbModel.Account">
               <MappingFragment StoreEntitySet="Account">

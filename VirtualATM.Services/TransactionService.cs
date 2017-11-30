@@ -9,9 +9,9 @@ namespace VirtualATM.Services
 {
     public class TransactionService
     {
-        public bool Withdrawal(int id, int amount)
+        public bool Withdrawal(int id, decimal amount)
         {
-            using (var ctx = new VirtualATMdbEntities1())
+            using (var ctx = new VirtualATMdbEntities())
             {
                 var transaction = new Transaction
                 {
@@ -28,9 +28,9 @@ namespace VirtualATM.Services
             }
         }
 
-        public bool Deposit(int id, int amount)
+        public bool Deposit(int id, decimal amount)
         {
-            using (var ctx = new VirtualATMdbEntities1())
+            using (var ctx = new VirtualATMdbEntities())
             {
                 var transaction = new Transaction
                 {

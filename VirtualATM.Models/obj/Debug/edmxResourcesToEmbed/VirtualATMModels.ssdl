@@ -26,7 +26,7 @@
     <Property Name="TransactionId" Type="int" Nullable="false" />
     <Property Name="TransactionType" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TransactionDateTime" Type="datetime" Nullable="false" />
-    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
     <Property Name="TransactionDescription" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK__Account__Account__4316F928">

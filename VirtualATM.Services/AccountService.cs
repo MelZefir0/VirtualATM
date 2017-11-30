@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,12 @@ namespace VirtualATM.Services
 {
     public class AccountService
     {
-        private VirtualATMdbEntities1 db = new VirtualATMdbEntities1();
+        private VirtualATMdbEntities db = new VirtualATMdbEntities();
 
         public Account GetAccountById(int id)
         {
             return
-                new VirtualATMdbEntities1()
+                new VirtualATMdbEntities()
                     .Account
                     .SingleOrDefault(e => e.AccountId == id);
         }
@@ -30,17 +31,30 @@ namespace VirtualATM.Services
             }
             return false;
         }
+        //public IEnumerable<IList> TransactionActivity(int id)
+        //{
+        //    using (var ctx = new VirtualATMdbEntities())
+        //    {
+        //        var query =
+        //            ctx
+        //                .Transaction
+        //                .Where(e => e.AccountId == id)
+        //                .Select(
+        //                    e =>
+        //                        new Transaction
+        //                        {
+        //                            AccountId = e.AccountId,
+        //                            TransactionId = e.TransactionId,
+        //                            TransactionType = e.TransactionType,
+        //                            TransactionDateTime = e.TransactionDateTime,
+        //                            Amount = e.Amount,
+        //                            TransactionDescription = e.TransactionDescription
 
-        public bool TransactionActivity(int id)
-        {
-            var query = from a in db.Transaction
-                        where a.AccountId != 0
-                        select a;
-            foreach (var i in query)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
+        //                        }
+        //                );
+        //        return query.ToArray();
+        //    }
+        //}   
+
+    }   
 }

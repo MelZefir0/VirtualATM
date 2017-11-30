@@ -10,9 +10,9 @@ namespace VirtualATM.Services
 {
     public class AuthService
     {
-        private VirtualATMdbEntities1 db = new VirtualATMdbEntities1();
+        private VirtualATMdbEntities db = new VirtualATMdbEntities();
 
-        public bool VerifyAccount(int pin, int userId)
+        public bool VerifyUser(int pin, int userId)
         {
             var query = from a in db.AccountHolder
                         where a.PIN == pin && a.AccountHolderId == userId

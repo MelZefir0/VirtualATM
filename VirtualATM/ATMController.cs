@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -9,12 +10,14 @@ using VirtualATM.Services;
 
 namespace VirtualATM
 {
+    [System.Runtime.InteropServices.Guid("27F1B572-5DAA-4B02-A01A-29C6FF6CB78D")]
     public class ATMController
     {
         private static AuthService authService = new AuthService();
         private static AccountService accountService = new AccountService();
         private static TransactionService transactionService = new TransactionService();
-        private static AccountService getAccount = new AccountService();
+ 
+        public static Account AccountId { get; private set; }
 
         public void Art()
         {
@@ -37,11 +40,11 @@ namespace VirtualATM
                                `--------------------------------------------------------------------'");
         }
 
-        public static void AccountId(int id)
+        public static Account getAccountById(int id)
         {
-            accountService.GetAccountById(id);
+            return accountService.GetAccountById(id);
         }
-        
+
         //public static void Balance(int id)
         //{
 
@@ -55,79 +58,95 @@ namespace VirtualATM
         public static void Withdrawal(int id)
         {
             Console.WriteLine("How much would you like to withdraw?");
-            int withdrawalAmount = Int32.Parse(Console.ReadLine());
+            decimal withdrawalAmount = Int32.Parse(Console.ReadLine());
+
+            if (withdrawalAmount > AccountId.Balance)
+            {
+                Console.WriteLine("Insufficient funds");
+            }
+
             transactionService.Withdrawal(id, withdrawalAmount);
         }
 
         public static void Deposit(int id)
         {
             Console.WriteLine("How much would you like to deposit?");
-            int depositAmount = Int32.Parse(Console.ReadLine());
+            decimal depositAmount = Int32.Parse(Console.ReadLine());
             transactionService.Deposit(id, depositAmount);
         }
 
         //public static void Activity(int id)
         //{
-        //    accountService.TransactionActivity(id);
-        //    Console.WriteLine($"{id.AccountId}" +
-        //                      $"{id.TransactionId}" +
-        //                      $"{id.TransactionType}" +
-        //                      $"{id.TransactionDateTime}" +
-        //                      $"{id.Amount}" +
-        //                      $"{accntId.TransactionDescription}");
+        //    var transactionActivity = new TransactionActivity(id);
+        //    foreach (var i in query)
+        //    {
+        //        Console.WriteLine($"{i.AccountId}" +
+        //                      $"{i.TransactionId}" +
+        //                      $"{i.TransactionType}" +
+        //                      $"{i.TransactionDateTime}" +
+        //                      $"{i.Amount}" +
+        //                      $"{i.TransactionDescription}");
+        //    }
         //}
-        //is this necessary?
 
         public static void StartATM()
         {
-            Console.WriteLine("Welcome. Please enter your Personal ID Number: ");
-            int userid = Int32.Parse(Console.ReadLine().Trim());
+            bool auth = false;
 
-            Console.WriteLine("PIN: ");
-            int pin = Int32.Parse(Console.ReadLine().Trim());
+            while (!auth)
+            {
+                Console.WriteLine("Please enter your Personal ID Number: ");
+                int userid = Int32.Parse(Console.ReadLine().Trim());
 
-            authService.VerifyAccount(userid, pin);
-            
+                Console.WriteLine("PIN: ");
+                int pin = Int32.Parse(Console.ReadLine().Trim());
 
-                Console.WriteLine($"Welcome back, ??. Which account would you like to access? Account ID: ");
-                int id = Int32.Parse(Console.ReadLine().Trim());
+                auth = authService.VerifyUser(userid, pin);
 
-                AccountId(id);
+                Account account = null;
+                while(account == null)
+                {
+                    Console.WriteLine($"Welcome back, ??. Which account would you like to access? Account ID: ");
+                    int id = Int32.Parse(Console.ReadLine().Trim());
 
-                Console.WriteLine(@"How may I assist you?
+                    account = getAccountById(id);
+                }
+                    Console.WriteLine(@"How may I assist you?
                                 1...................Check Balance
                                 2...................Make a Withdrawal
                                 3...................Make a Deposit
                                 4...................Account Activity
                                 5...................Exit");
-                var option = int.Parse(Console.ReadLine().Trim());
+                    var option = int.Parse(Console.ReadLine().Trim());
 
-                switch (option)
-                {
-                    case 1:
+                    switch (option)
+                    {
+                        case 1:
+                            //Balance(id);
+                            Thread.Sleep(300);
+                            break;
+                        case 2:
+                            //Withdrawal(id);
+                            Thread.Sleep(300);
+                            break;
+
+                        case 3:
+                            //Deposit(id);
+                            Thread.Sleep(300);
+                            break;
+
+                        case 4:
+                            //Activiy(id);
+                            Thread.Sleep(300);
+                            break;
+
+                        case 5:
+                            Environment.Exit(0);
                         break;
-                    case 2:
-                        Withdrawal(id);
-                        Thread.Sleep(300);
-                        break;
-
-                    case 3:
-                        Deposit(id);
-                        Thread.Sleep(300);
-                        break;
-
-                    case 4:
-
-                        Thread.Sleep(300);
-                        break;
-
-                    case 5:
-                        Environment.Exit(0);
-                        Thread.Sleep(300);
-                        break;
-
-                }
-            
+                    }
+                Console.WriteLine("Invalid Entry");
+                break;
+            }
         }
     }
 }

@@ -29,7 +29,7 @@
     <Property Name="TransactionId" Type="Int32" Nullable="false" />
     <Property Name="TransactionType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TransactionDateTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="TransactionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Accou__440B1D61" FromRole="Transaction" ToRole="Account" />
   </EntityType>
@@ -57,7 +57,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="VirtualATMdbEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="VirtualATMdbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Account" EntityType="Self.Account" />
     <EntitySet Name="AccountHolder" EntityType="Self.AccountHolder" />
     <EntitySet Name="Transaction" EntityType="Self.Transaction" />
