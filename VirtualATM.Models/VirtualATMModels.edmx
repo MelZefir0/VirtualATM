@@ -31,10 +31,10 @@
           <Property Name="TransactionId" Type="int" Nullable="false" />
           <Property Name="TransactionType" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TransactionDateTime" Type="datetime" Nullable="false" />
-          <Property Name="Amount" Type="money" Nullable="false" />
-          <Property Name="TransactionDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="TransactionDescription" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK__Account__Account__4316F928">
+        <Association Name="FK__Account__Account__300424B4">
           <End Role="AccountHolder" Type="Self.AccountHolder" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -46,7 +46,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__Accou__440B1D61">
+        <Association Name="FK__Transacti__Accou__2D27B809">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -62,11 +62,11 @@
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountHolder" EntityType="Self.AccountHolder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Account__Account__4316F928" Association="Self.FK__Account__Account__4316F928">
+          <AssociationSet Name="FK__Account__Account__300424B4" Association="Self.FK__Account__Account__300424B4">
             <End Role="AccountHolder" EntitySet="AccountHolder" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Accou__440B1D61" Association="Self.FK__Transacti__Accou__440B1D61">
+          <AssociationSet Name="FK__Transacti__Accou__2D27B809" Association="Self.FK__Transacti__Accou__2D27B809">
             <End Role="Account" EntitySet="Account" />
             <End Role="Transaction" EntitySet="Transaction" />
           </AssociationSet>
@@ -84,8 +84,8 @@
           <Property Name="AccountHolderId" Type="Int32" Nullable="false" />
           <Property Name="AccountType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="AccountHolder" Relationship="Self.FK__Account__Account__4316F928" FromRole="Account" ToRole="AccountHolder" />
-          <NavigationProperty Name="Transaction" Relationship="Self.FK__Transacti__Accou__440B1D61" FromRole="Account" ToRole="Transaction" />
+          <NavigationProperty Name="AccountHolder" Relationship="Self.FK__Account__Account__300424B4" FromRole="Account" ToRole="AccountHolder" />
+          <NavigationProperty Name="Transaction" Relationship="Self.FK__Transacti__Accou__2D27B809" FromRole="Account" ToRole="Transaction" />
         </EntityType>
         <EntityType Name="AccountHolder">
           <Key>
@@ -95,7 +95,7 @@
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PIN" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Account__Account__4316F928" FromRole="AccountHolder" ToRole="Account" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Account__Account__300424B4" FromRole="AccountHolder" ToRole="Account" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
@@ -105,11 +105,11 @@
           <Property Name="TransactionId" Type="Int32" Nullable="false" />
           <Property Name="TransactionType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TransactionDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="TransactionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Accou__440B1D61" FromRole="Transaction" ToRole="Account" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Accou__2D27B809" FromRole="Transaction" ToRole="Account" />
         </EntityType>
-        <Association Name="FK__Account__Account__4316F928">
+        <Association Name="FK__Account__Account__300424B4">
           <End Role="AccountHolder" Type="Self.AccountHolder" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -121,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__Accou__440B1D61">
+        <Association Name="FK__Transacti__Accou__2D27B809">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -133,15 +133,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="VirtualATMdbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VirtualATMdbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="AccountHolder" EntityType="Self.AccountHolder" />
           <EntitySet Name="Transaction" EntityType="Self.Transaction" />
-          <AssociationSet Name="FK__Account__Account__4316F928" Association="Self.FK__Account__Account__4316F928">
+          <AssociationSet Name="FK__Account__Account__300424B4" Association="Self.FK__Account__Account__300424B4">
             <End Role="AccountHolder" EntitySet="AccountHolder" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Accou__440B1D61" Association="Self.FK__Transacti__Accou__440B1D61">
+          <AssociationSet Name="FK__Transacti__Accou__2D27B809" Association="Self.FK__Transacti__Accou__2D27B809">
             <End Role="Account" EntitySet="Account" />
             <End Role="Transaction" EntitySet="Transaction" />
           </AssociationSet>
@@ -151,7 +151,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VirtualATMdbModelStoreContainer" CdmEntityContainer="VirtualATMdbEntities">
+        <EntityContainerMapping StorageEntityContainer="VirtualATMdbModelStoreContainer" CdmEntityContainer="VirtualATMdbEntities1">
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="VirtualATMdbModel.Account">
               <MappingFragment StoreEntitySet="Account">

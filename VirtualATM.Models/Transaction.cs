@@ -18,7 +18,7 @@ namespace VirtualATM.Models
         public int TransactionId { get; set; }
         public string TransactionType { get; set; }
         public System.DateTime TransactionDateTime { get; set; }
-        public decimal Amount { get; set; }
+        public int Amount { get; set; }
         public string TransactionDescription { get; set; }
     
         public virtual Account Account { get; set; }

@@ -13,10 +13,10 @@ namespace VirtualATM.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VirtualATMdbEntities : DbContext
+    public partial class VirtualATMdbEntities1 : DbContext
     {
-        public VirtualATMdbEntities()
-            : base("name=VirtualATMdbEntities")
+        public VirtualATMdbEntities1()
+            : base("name=VirtualATMdbEntities1")
         {
         }
     

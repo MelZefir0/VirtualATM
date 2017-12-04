@@ -10,7 +10,7 @@ namespace VirtualATM.Services
 {
     public class AuthService
     {
-        private VirtualATMdbEntities db = new VirtualATMdbEntities();
+        private VirtualATMdbEntities1 db = new VirtualATMdbEntities1();
 
         public bool VerifyUser(int pin, int userId)
         {
@@ -18,7 +18,7 @@ namespace VirtualATM.Services
                         where a.PIN == pin && a.AccountHolderId == userId
                         select a;
             foreach(var i in query)
-            { 
+            {
                 return true;
             }
 
