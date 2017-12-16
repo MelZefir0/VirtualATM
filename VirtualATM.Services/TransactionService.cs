@@ -23,7 +23,7 @@ namespace VirtualATM.Services
 
                 ctx.Account.SingleOrDefault(e => e.AccountId == id).Balance -= amount;
 
-                return ctx.SaveChanges() == 3;
+                return ctx.SaveChanges() == 1;
             }
         }
 
@@ -41,7 +41,7 @@ namespace VirtualATM.Services
 
                 ctx.Account.SingleOrDefault(e => e.AccountId == id).Balance += amount;
 
-                return ctx.SaveChanges() == 3;
+                return ctx.SaveChanges() == 1;
             }
         }
     }

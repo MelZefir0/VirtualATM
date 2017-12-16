@@ -20,23 +20,12 @@ namespace VirtualATM.Services
                     .SingleOrDefault(e => e.AccountId == id);
         }
 
-
-
-        //public AccountHolder GetName(int userId, AccountHolder name)
-        //{
-                 
-        //    return
-        //        new VirtualATMdbEntities1()
-        //        .AccountHolder
-        //        .SingleOrDefault(e => e.AccountHolderId == userId);
-        //        name = AccountHolder.FirstName;
-        //}
-
-        public IEnumerable<Account> RetrieveBalance(int id)
+        public Account RetrieveBalance(int id)
         {
             var query = from a in db.Account
                         where a.AccountId == id
                         select a;
+            
             foreach (var i in query)
             {
                 var account = GetAccountById(id);
@@ -44,6 +33,11 @@ namespace VirtualATM.Services
                 balance = (decimal)balance;
             }
             return query;
+
+            using (var ctx = new VirtualATMdbEntities1())
+            {
+                return ctx.Account.SingleOrDefault(a => a.AccountId == id);
+            }
         }
         public IEnumerable<Transaction> TransactionActivity(int id)
         {

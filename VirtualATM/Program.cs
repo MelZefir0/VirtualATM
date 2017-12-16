@@ -14,7 +14,7 @@ namespace VirtualATM
             ATMController appInstance = new ATMController();
 
             appInstance.Art();
-            ATMController.StartATM();
+            ATMController.StartATMJeremy();
         }
     }
 }

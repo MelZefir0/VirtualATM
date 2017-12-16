@@ -16,6 +16,7 @@ namespace VirtualATM
         private static AuthService authService = new AuthService();
         private static AccountService accountService = new AccountService();
         private static TransactionService transactionService = new TransactionService();
+        private static AccountHolderService accountHolderService = new AccountHolderService();
 
         public void Art()
         {
@@ -108,11 +109,11 @@ namespace VirtualATM
             {
                 pin = Int32.Parse(Console.ReadLine().Trim());
               
-                if (!authService.VerifyUser(userId, pin))
+                if (!authService.AuthenticateUser(userId, pin))
                 {
                     Console.WriteLine("Either your ID or PIN is incorrect. Try again.");
                     Thread.Sleep(1000);
-                    //StartATM();
+                    StartATM();
                 }
                 else
                 {
@@ -120,7 +121,9 @@ namespace VirtualATM
                 }
             } while (!auth);
 
-            Console.WriteLine($"Welcome back, {0}. Which account would you like to access? Account ID:");
+            var ah = accountHolderService.GetAccountHolder(userId);
+
+            Console.WriteLine($"Welcome back, {ah.FirstName}. Which account would you like to access? Account ID:");
             int id;
 
             Account account;
@@ -184,4 +187,8 @@ namespace VirtualATM
 
         }
     }
+}
+
+while (true) {
+    if (AuthService.login(1,1234))
 }
